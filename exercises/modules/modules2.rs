@@ -10,25 +10,26 @@
 // I AM NOT DONE
 
 mod delicious_snacks {
-    // TODO: Fix these use statements
-    use self::fruits::PEAR as ???
-    use self::veggies::CUCUMBER as ???
+    // 无需在这里导入常量，直接在需要使用的地方从对应的子模块导入
+    // use self::fruits::PEAR as fruit;
+    // use self::veggies::CUCUMBER as veggie;
 
-    mod fruits {
+    pub mod fruits {
         pub const PEAR: &'static str = "Pear";
         pub const APPLE: &'static str = "Apple";
     }
 
-    mod veggies {
+    pub mod veggies {
         pub const CUCUMBER: &'static str = "Cucumber";
         pub const CARROT: &'static str = "Carrot";
     }
 }
 
 fn main() {
+    // 直接从子模块导入常量
     println!(
         "favorite snacks: {} and {}",
-        delicious_snacks::fruit,
-        delicious_snacks::veggie
+        delicious_snacks::fruits::PEAR,
+        delicious_snacks::veggies::CUCUMBER
     );
 }
