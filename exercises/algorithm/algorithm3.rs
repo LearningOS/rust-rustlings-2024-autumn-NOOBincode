@@ -5,8 +5,23 @@
 */
 // I AM NOT DONE
 
-fn sort<T>(array: &mut [T]){
-	//TODO
+fn sort<T:PartialOrd>(array: &mut [T]){
+    if array.len() <=1{
+        return
+    }
+    let size = array.len();
+    for i in 0..(size-1){
+        let mut swapped = false;
+        for j in 1..(size-i){
+            if array[j-1]>array[j]{
+                array.swap(j-1,j);
+                swapped = true;
+            }
+        }
+        if !swapped{
+            break;
+        }
+    }
 }
 #[cfg(test)]
 mod tests {
